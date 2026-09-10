@@ -1,0 +1,180 @@
+{
+  "characters": [
+    {
+      "id": "p01",
+      "name": "Liang Shuyi",
+      "age": 34,
+      "club": "sparrow",
+      "style": "Defensive stabilizer who converts small hands into consistent wins",
+      "desire": "To prove that patience and calculation outweigh raw instinct",
+      "flaw": "Freezes under extreme pressure and defaults to overly safe play",
+      "mentor_id": "",
+      "attack": 62,
+      "defense": 91,
+      "reading": 85,
+      "mental": 73,
+      "potential": 68,
+      "talent": 77,
+      "skills": [
+        "Iron Wall",
+        "Pond Reading",
+        "Safe Disc Tracking",
+        "Endgame Precision"
+      ]
+    },
+    {
+      "id": "p02",
+      "name": "Chen Haoran",
+      "age": 28,
+      "club": "sparrow",
+      "style": "Aggressive riichi specialist who forces opponent mistakes",
+      "desire": "To dominate every table he sits at and earn national recognition",
+      "flaw": "Overcommits to riichi even when the expected value is negative",
+      "mentor_id": "p01",
+      "attack": 89,
+      "defense": 58,
+      "reading": 72,
+      "mental": 66,
+      "potential": 88,
+      "talent": 84,
+      "skills": [
+        "Blitz Riichi",
+        "Danger Sense",
+        "Middle Game Rush",
+        "Tenpai Sprint"
+      ]
+    },
+    {
+      "id": "p03",
+      "name": "Zhou Mingxia",
+      "age": 41,
+      "club": "sparrow",
+      "style": "Veteran all-rounder who reads the flow of the entire game",
+      "desire": "To mentor the next generation before retiring from competitive play",
+      "flaw": "Physical stamina is declining and she struggles in marathon tournaments",
+      "mentor_id": "",
+      "attack": 74,
+      "defense": 79,
+      "reading": 93,
+      "mental": 88,
+      "potential": 55,
+      "talent": 80,
+      "skills": [
+        "Flow Analysis",
+        "Psychological Probe",
+        "Table Control",
+        "Adaptive Strategy"
+      ]
+    },
+    {
+      "id": "p04",
+      "name": "Xu Bowen",
+      "age": 26,
+      "club": "dragon",
+      "style": "High-risk high-reward player chasing massive hands",
+      "desire": "To build the most memorable comeback in tournament history",
+      "flaw": "Reckless calls and discards to chase yakuman regardless of score",
+      "mentor_id": "",
+      "attack": 95,
+      "defense": 42,
+      "reading": 68,
+      "mental": 54,
+      "potential": 91,
+      "talent": 82,
+      "skills": [
+        "Yakuman Hunter",
+        "All-or-Nothing Push",
+        "Dora Stacking",
+        "Miracle Draw"
+      ]
+    },
+    {
+      "id": "p05",
+      "name": "Sun Yifei",
+      "age": 31,
+      "club": "dragon",
+      "style": "Calculated predator who exploits positional disadvantages in others",
+      "desire": "To prove that cold logic beats warm-blooded passion at the table",
+      "flaw": "Arrogant and dismissive of opponents he considers beneath him",
+      "mentor_id": "p03",
+      "attack": 87,
+      "defense": 71,
+      "reading": 82,
+      "mental": 70,
+      "potential": 80,
+      "talent": 86,
+      "skills": [
+        "Positional Exploitation",
+        "Opponent Modeling",
+        "Kill Shot Timing",
+        "Score Calculation"
+      ]
+    },
+    {
+      "id": "p06",
+      "name": "Zheng Lianhua",
+      "age": 37,
+      "club": "crane",
+      "style": "Elegant player who constructs beautiful complex hands with grace",
+      "desire": "To elevate mahjong to an art form that transcends mere competition",
+      "flaw": "Prioritizes aesthetic hands over optimal winning probability",
+      "mentor_id": "",
+      "attack": 80,
+      "defense": 75,
+      "reading": 88,
+      "mental": 82,
+      "potential": 72,
+      "talent": 90,
+      "skills": [
+        "Hand Sculpting",
+        "Pattern Harmony",
+        "Finessed Wait Selection",
+        "Aesthetic Pressure"
+      ]
+    },
+    {
+      "id": "p07",
+      "name": "Huang Qitian",
+      "age": 29,
+      "club": "crane",
+      "style": "Methodical analyst who dissects every discard for hidden information",
+      "desire": "To develop a perfect predictive model of opponent hands",
+      "flaw": "Tanks too long on decisions and loses time pressure composure",
+      "mentor_id": "p06",
+      "attack": 76,
+      "defense": 84,
+      "reading": 96,
+      "mental": 78,
+      "potential": 85,
+      "talent": 88,
+      "skills": [
+        "Discard Forensics",
+        "Hand Reconstruction",
+        "Probability Matrix",
+        "Silent Read"
+      ]
+    },
+    {
+      "id": "p08",
+      "name": "Lin Chaoyang",
+      "age": 33,
+      "club": "tide",
+      "style": "Unconventional disruptor who shifts game tempo unpredictably",
+      "desire": "To make every opponent doubt everything they thought they knew",
+      "flaw": "Inconsistent results because his chaos sometimes collapses his own hands",
+      "mentor_id": "",
+      "attack": 83,
+      "defense": 65,
+      "reading": 70,
+      "mental": 60,
+      "potential": 78,
+      "talent": 79,
+      "skills": [
+        "Tempo Shift",
+        "Chaos Gambit",
+        "Unorthodox Discard",
+        "Mind Fog"
+      ]
+    }
+  ]
+}

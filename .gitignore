@@ -1,0 +1,6 @@
+runtime/*.exe
+game/.godot/
+work/
+*.tmp
+*.log
+builds/

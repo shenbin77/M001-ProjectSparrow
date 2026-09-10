@@ -1,0 +1,9 @@
+# First playable checkpoint — 2026-09-11
+Main development: D:\AI-Game-Factory\M001-ProjectSparrow
+Commit: f910625
+Windows development ZIP SHA256: 51428CACC1E09EE105E2D0B8CD20E3D292834835BF0A45133716490ED9AFCA19
+Tests passed: upstream 1026; project Node 5 suites (50 automated hands + 30 interactive replay hands); Godot career 22 checks; game smoke and packaged-directory smoke.
+Not verified: clean machine installation, full career, Steam submission. Not RC.
+OpenCode free Worker: two usable tasks delivered (character data, review). Tool-reported cost zero; not a billing audit. Local Qwen remains offline.
+Old C-drive ProjectSparrow folder is a migration rollback snapshot. Do not continue development there. Use D-drive CURRENT_STATUS.md.
+Six-hour heartbeat m001 points to D-drive project; requires host and app availability.

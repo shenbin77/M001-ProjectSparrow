@@ -4,3 +4,9 @@ work/
 *.tmp
 *.log
 builds/
+
+# vendored dependency caches
+vendor/*/node_modules/
+# local-only artifacts
+work/backups/
+*.png.bak

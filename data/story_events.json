@@ -1,0 +1,100 @@
+{
+  "events": [
+    {
+      "id": "se_001",
+      "at_match": 1,
+      "title": "The Sponsor's Ultimatum",
+      "body": "A potential sponsor visits the Crimson Sparrow club. He offers funding but demands the team drop Chen Haoran from the roster, calling him 'dead weight.' The club's future hangs on this decision.",
+      "choices": [
+        {
+          "id": "se001_a",
+          "label": "Accept the condition — secure the money",
+          "funds": 180,
+          "morale": -8,
+          "relationship_id": "p01",
+          "relationship_delta": -10
+        },
+        {
+          "id": "se001_b",
+          "label": "Reject — keep the team intact",
+          "funds": -40,
+          "morale": 5,
+          "relationship_id": "p01",
+          "relationship_delta": 8
+        }
+      ]
+    },
+    {
+      "id": "se_002",
+      "at_match": 3,
+      "title": "Rookie vs. Veteran",
+      "body": "Chen Haoran clashes with Liang Shuyi over strategy before a critical match. Liang insists on conservative play; Haoran pushes for aggressive tiles. The argument threatens to fracture the team's focus.",
+      "choices": [
+        {
+          "id": "se002_a",
+          "label": "Side with Liang — respect the veteran's judgment",
+          "funds": 0,
+          "morale": 3,
+          "relationship_id": "p02",
+          "relationship_delta": 7
+        },
+        {
+          "id": "se002_b",
+          "label": "Side with Haoran — back the new blood",
+          "funds": 20,
+          "morale": -4,
+          "relationship_id": "p01",
+          "relationship_delta": 6
+        }
+      ]
+    },
+    {
+      "id": "se_003",
+      "at_match": 6,
+      "title": "The Rival's Offer",
+      "body": "Jade Dragon Club approaches Liang Shuyi with a transfer deal: triple pay, better facilities, guaranteed starting seat. Liang hesitates but feels trapped by loyalty to Crimson Sparrow's debts.",
+      "choices": [
+        {
+          "id": "se003_a",
+          "label": "Convince Liang to stay — appeal to loyalty",
+          "funds": -60,
+          "morale": 6,
+          "relationship_id": "p02",
+          "relationship_delta": 9
+        },
+        {
+          "id": "se003_b",
+          "label": "Let Liang go — save the salary",
+          "funds": 120,
+          "morale": -6,
+          "relationship_id": "p02",
+          "relationship_delta": -8
+        }
+      ]
+    },
+    {
+      "id": "se_004",
+      "at_match": 9,
+      "title": "The Mentor's Gambit",
+      "body": "Before the finals, the retired club founder offers a secret training session. He demands exclusive rights to negotiate Haoran's future contracts in exchange. The team must weigh short-term gains against long-term control.",
+      "choices": [
+        {
+          "id": "se004_a",
+          "label": "Accept — win now, deal with contracts later",
+          "funds": 80,
+          "morale": 4,
+          "relationship_id": "p01",
+          "relationship_delta": -5
+        },
+        {
+          "id": "se004_b",
+          "label": "Decline — protect player autonomy",
+          "funds": -30,
+          "morale": 7,
+          "relationship_id": "p01",
+          "relationship_delta": 10
+        }
+      ]
+    }
+  ]
+}

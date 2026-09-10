@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 Set-Location $PSScriptRoot
-& .\runtime\node.exe --test tests\adapter.test.cjs tests\data.test.cjs
+& .\runtime\node.exe --test tests\adapter.test.cjs tests\data.test.cjs tests\professional-ai.test.cjs tests\club-ai.test.cjs tests\skills-coverage.test.cjs
 if ($LASTEXITCODE -ne 0) { throw 'Rule adapter tests failed' }
 & .\runtime\godot_console.exe --headless --path game --script res://test_career.gd
 if ($LASTEXITCODE -ne 0) { throw 'Career tests failed' }

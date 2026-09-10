@@ -1,5 +1,8 @@
 'use strict';
 const M = require('../vendor/majiang-core/lib');
+const ProfessionalPlayer = require('../vendor/majiang-ai/lib/player');
+const {getStyle} = require('./club-styles.cjs');
+const STYLES = ['rookie','professional','pressure','tensei'];
 
 function choicesFor(game, seat) {
   const out = [], add = (label, reply) => out.push({label, reply});
@@ -47,14 +50,25 @@ function selectAI(hand, choices) {
 
 function execute(request) {
   if (!request || !['new','action','auto'].includes(request.op)) throw Error('Invalid operation');
-  const state = request.op === 'new' ? {seed:request.seed ?? Date.now()%4294967296,replies:[]} : request.state;
+  const state = request.op === 'new' ? {seed:request.seed ?? Date.now()%4294967296,replies:[],ai_profile:request.ai_profile || 'rookie',ai_profiles:request.ai_profiles} : request.state;
   if (!state || !Number.isInteger(state.seed) || state.seed<0 || state.seed>4294967295 || !Array.isArray(state.replies) || state.replies.length>1000) throw Error('Invalid replay state');
+  const profile = state.ai_profile || 'rookie';
+  if (!['rookie','professional'].includes(profile)) throw Error('Invalid AI profile');
+  if (state.ai_profiles != null) {
+    if (!Array.isArray(state.ai_profiles) || state.ai_profiles.length !== 3) throw Error('Invalid AI profiles: expected 3 styles');
+    for (const s of state.ai_profiles) if (!STYLES.includes(s)) throw Error('Invalid AI style: '+String(s));
+  }
   const replies = JSON.parse(JSON.stringify(state.replies));
   let rng=state.seed, index=0, pending=null, result=null, done=false, actionUsed=false;
   const oldRandom=Math.random;
   Math.random=()=>{rng=(rng+0x6D2B79F5)|0; let t=Math.imul(rng^(rng>>>15),1|rng); t^=t+Math.imul(t^(t>>>7),61|t); return ((t^(t>>>14))>>>0)/4294967296;};
   try {
-    const players=Array.from({length:4},()=>({action(_msg,cb){if(cb) cb({});}}));
+    const players=Array.from({length:4},(_,id)=>{
+      if(!id) return {action(_msg,cb){if(cb) cb({});}};
+      const style=(state.ai_profiles&&state.ai_profiles[id-1])||profile;
+      if(style==='rookie') return {action(_msg,cb){if(cb) cb({});}};
+      return getStyle(style,id);
+    });
     const game=new M.Game(players,paipu=>{done=true; result={scores:paipu.defen,rank:paipu.rank,points:paipu.point,log:paipu.log};},M.rule({'場数':0,'連荘方式':0,'延長戦方式':0}),'Project Sparrow single-hand contest');
     game._sync=true;
     game.kaiju(0);
@@ -64,7 +78,7 @@ function execute(request) {
         const choices=choicesFor(game,s);
         if (!choices.length) continue;
         const id=game.model.player_id[s];
-        if (id!==0) {game._reply[id]=selectAI(game.model.shoupai[s],choices);continue;}
+        if (id!==0) {const style=(state.ai_profiles&&state.ai_profiles[id-1])||profile; if(style==='rookie') game._reply[id]=selectAI(game.model.shoupai[s],choices);continue;}
         let reply;
         if (index<replies.length) reply=replies[index];
         else if (request.op==='auto') { reply=selectAI(game.model.shoupai[s],choices); replies.push(reply); }
@@ -81,7 +95,7 @@ function execute(request) {
     if (index<replies.length) throw Error('Replay contains excess actions');
     if(request.op==='action'&&!actionUsed) throw Error('No decision available');
     const model=game.model,seat=model.player_id.indexOf(0);
-    return {ok:true,state:{seed:state.seed,replies},hand:model.shoupai[seat]?.toString()||'',melds:model.shoupai.map(h=>h._fulou.slice()),discards:model.he.map(h=>h._pai.slice()),scores:model.defen.slice(),dora:model.shan?.baopai||[],wall:model.shan?.paishu||0,choices:pending||[],done,result,seat,status:game._status,mode:'single-hand-riichi'};
+    return {ok:true,state:{seed:state.seed,replies,ai_profile:profile,ai_profiles:state.ai_profiles},hand:model.shoupai[seat]?.toString()||'',melds:model.shoupai.map(h=>h._fulou.slice()),discards:model.he.map(h=>h._pai.slice()),scores:model.defen.slice(),dora:model.shan?.baopai||[],wall:model.shan?.paishu||0,choices:pending||[],done,result,seat,status:game._status,mode:'single-hand-riichi'};
   } finally {Math.random=oldRandom;}
 }
 module.exports={execute,choicesFor,selectAI};
